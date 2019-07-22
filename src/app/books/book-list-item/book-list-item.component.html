@@ -1,0 +1,7 @@
+<img class="ui tiny image"
+     src="{{ book.image_url}}"
+     bmZoom>
+<div class="content">
+  <div class="header">{{ book.name }}</div>
+  <div *ngIf="book.tagline" class="description">{{ book.tagline }}</div>
+</div>
