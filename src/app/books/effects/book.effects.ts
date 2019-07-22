@@ -11,8 +11,6 @@ import {
   LoadBooksFailure,
   LoadBookSuccess,
   LoadBookFailure,
-  DeleteBook,
-  DeleteBookSuccess
 } from '../actions/book.actions';
 import { BookStoreService } from 'src/app/shared/book-store.service';
 
@@ -32,27 +30,14 @@ export class BookEffects {
   @Effect()
   loadBook$ = this.actions$.pipe(
     ofType(BookActionTypes.LoadBook),
-    map(action => action.payload.isbn),
-    mergeMap(isbn => this.bs.getSingle(isbn).pipe(
+    map(action => action.payload.id),
+    mergeMap(id => this.bs.getSingle(id).pipe(
       map(book => new LoadBookSuccess({ book })),
       catchError(error => of(new LoadBookFailure({ error })))
     ))
   );
 
-  @Effect()
-  deleteBook$ = this.actions$.pipe(
-    ofType<DeleteBook>(BookActionTypes.DeleteBook),
-    map(action => action.payload.isbn),
-    mergeMap(isbn => this.bs.remove(isbn).pipe(
-      map(() => new DeleteBookSuccess({ isbn }))
-    ))
-  );
 
-  @Effect({ dispatch: false })
-  deleteBookSuccess$ = this.actions$.pipe(
-    ofType(BookActionTypes.DeleteBookSuccess),
-    tap(() => this.router.navigate(['/books']))
-  );
 
   constructor(
     private actions$: Actions<BookActions>,

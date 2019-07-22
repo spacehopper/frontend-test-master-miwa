@@ -26,13 +26,13 @@ export class BookDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const isbn = this.getIsbn();
+    const id = this.getIsbn();
 
     this.book$ = this.store.pipe(
-      select(getBookByIsbn, { isbn })
+      select(getBookByIsbn, { id })
     );
 
-    this.store.dispatch(new LoadBook({ isbn }));
+    this.store.dispatch(new LoadBook({ id }));
   }
 
   getRating(num: number) {
@@ -41,8 +41,8 @@ export class BookDetailsComponent implements OnInit {
 
   removeBook() {
     if (confirm('Buch wirklich löschen?')) {
-      const isbn = this.getIsbn();
-      this.store.dispatch(new DeleteBook({ isbn }));
+      const id = this.getIsbn();
+      this.store.dispatch(new DeleteBook({ id }));
     }
   }
 

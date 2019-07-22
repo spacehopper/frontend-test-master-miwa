@@ -1,7 +1,6 @@
 import { BookActions, BookActionTypes } from '../actions/book.actions';
 
 import { Book } from '../../shared/book';
-import { AdminActionTypes, AdminActions } from '../../admin/actions/admin.actions';
 
 export interface State {
   books: Book[];
@@ -13,7 +12,7 @@ export const initialState: State = {
   loading: false
 };
 
-export function reducer(state = initialState, action: BookActions | AdminActions): State {
+export function reducer(state = initialState, action: BookActions): State {
   console.log("action.type: "+action.type);
 
   switch (action.type) {
@@ -46,28 +45,6 @@ export function reducer(state = initialState, action: BookActions | AdminActions
       };
     }
 
-    case BookActionTypes.DeleteBookSuccess: {
-      return {
-        ...state,
-        books: state.books.filter(
-          b => b.id !== action.payload.id
-        )
-      };
-    }
-
-    case AdminActionTypes.CreateBookSuccess: {
-      const { book } = action.payload;
-      const books = [...state.books, book];
-
-      return { ...state, books };
-    }
-
-    case AdminActionTypes.UpdateBookSuccess: {
-      const { book } = action.payload;
-      const books = state.books.map(b => b.id === book.id ? book : b);
-
-      return { ...state, books };
-    }
 
     default:
       return state;
