@@ -14,7 +14,7 @@ export const getAllBooks = createSelector(
   state => state.books
 );
 
-export const getBookById = createSelector(
+export const getBeerById = createSelector(
   getAllBooks,
   (books, props) => books.find(b => b.id === props.id)
 );

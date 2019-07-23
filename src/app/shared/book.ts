@@ -15,7 +15,3 @@ export interface Book {
   attenuation_level?:string;
 }
 
-export interface Thumbnail {
-  url: string;
-  title?: string;
-}
