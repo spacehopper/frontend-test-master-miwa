@@ -5,8 +5,7 @@ import { BooksRoutingModule } from './books-routing.module';
 
 import { BookListComponent } from './book-list/book-list.component';
 import { BookListItemComponent } from './book-list-item/book-list-item.component';
-import { BookDetailsComponent } from './book-details/book-details.component';
-import { IsbnPipe } from './shared/isbn.pipe';
+import { BookDetailsComponent } from "./beer-details/beer-details.component";
 import { ZoomDirective } from './shared/zoom.directive';
 import { StoreModule } from '@ngrx/store';
 import * as fromBook from './reducers/book.reducer';
@@ -24,7 +23,6 @@ import { BookEffects } from './effects/book.effects';
     BookListComponent,
     BookListItemComponent,
     BookDetailsComponent,
-    IsbnPipe,
     ZoomDirective,
     DelayDirective
   ]

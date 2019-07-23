@@ -10,7 +10,7 @@ import {
   LoadBooksSuccess,
   LoadBooksFailure,
   LoadBookSuccess,
-  LoadBookFailure,
+  LoadBookFailure
 } from '../actions/book.actions';
 import { BookStoreService } from 'src/app/shared/book-store.service';
 
@@ -30,13 +30,12 @@ export class BookEffects {
   @Effect()
   loadBook$ = this.actions$.pipe(
     ofType(BookActionTypes.LoadBook),
-    map(action => action.payload.id),
+    map(action => action.payload.isbn),
     mergeMap(id => this.bs.getSingle(id).pipe(
       map(book => new LoadBookSuccess({ book })),
       catchError(error => of(new LoadBookFailure({ error })))
     ))
   );
-
 
 
   constructor(

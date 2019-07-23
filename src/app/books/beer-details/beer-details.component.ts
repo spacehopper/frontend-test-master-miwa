@@ -4,15 +4,15 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { State } from '../../reducers';
-import { LoadBook, DeleteBook,LoadBooks } from '../actions/book.actions';
-import { getBookByIsbn } from '../selectors/book.selectors';
+import { LoadBook,LoadBooks } from '../actions/book.actions';
+import { getBookById } from '../selectors/book.selectors';
 import { Book } from '../../shared/book';
 import { BookStoreService } from '../../shared/book-store.service';
 import {Output,EventEmitter} from '@angular/core';
 @Component({
   selector: 'bm-book-details',
-  templateUrl: './book-details.component.html',
-  styleUrls: ['./book-details.component.css']
+  templateUrl: './beer-details.component.html',
+  styleUrls: ['./beer-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
   book$: Observable<Book>;
@@ -26,31 +26,20 @@ export class BookDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const id = this.getIsbn();
+    const isbn = this.getId();
 
     this.book$ = this.store.pipe(
-      select(getBookByIsbn, { id })
+      select(getBookById, { isbn })
     );
 
-    this.store.dispatch(new LoadBook({ id }));
+    this.store.dispatch(new LoadBook({ isbn }));
   }
 
   getRating(num: number) {
     return new Array(num);
   }
 
-  removeBook() {
-    if (confirm('Buch wirklich löschen?')) {
-      const id = this.getIsbn();
-      this.store.dispatch(new DeleteBook({ id }));
-    }
+  getId() {
+    return this.route.snapshot.paramMap.get('id');
   }
-
-  getIsbn() {
-    return this.route.snapshot.paramMap.get('isbn');
-  }
-  showBookList() {
-      console.log("hallo book-details...");
-      this.store.dispatch(new LoadBooks());
-        }
 }

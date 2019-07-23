@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'isbn'
+  name: 'id'
 })
 export class IsbnPipe implements PipeTransform {
 

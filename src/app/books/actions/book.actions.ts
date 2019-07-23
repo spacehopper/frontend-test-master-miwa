@@ -30,7 +30,7 @@ export class LoadBooksFailure implements Action {
 
 export class LoadBook implements Action {
   readonly type = BookActionTypes.LoadBook;
-  constructor(public payload: { id: string }) {}
+  constructor(public payload: { isbn: string }) {}
 }
 
 export class LoadBookSuccess implements Action {
@@ -43,15 +43,6 @@ export class LoadBookFailure implements Action {
   constructor(public payload: { error: HttpErrorResponse }) {}
 }
 
-export class DeleteBook implements Action {
-  readonly type = BookActionTypes.DeleteBook;
-  constructor(public payload: { id: string }) {}
-}
-
-export class DeleteBookSuccess implements Action {
-  readonly type = BookActionTypes.DeleteBookSuccess;
-  constructor(public payload: { id: string }) {}
-}
 
 export type BookActions =
   | LoadBooks
@@ -59,6 +50,4 @@ export type BookActions =
   | LoadBooksFailure
   | LoadBook
   | LoadBookSuccess
-  | LoadBookFailure
-  | DeleteBook
-  | DeleteBookSuccess;
+  | LoadBookFailure;
