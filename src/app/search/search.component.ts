@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, tap, switchMap, filter } from 'rxjs/operators';
 
-import { Book } from '../shared/book';
-import { BookStoreService } from '../shared/book-store.service';
+import { Beer } from '../shared/beer';
+import { BeerStoreService } from '../shared/beer-store.service';
 
 @Component({
   selector: 'bm-search',
@@ -14,9 +14,9 @@ export class SearchComponent implements OnInit {
 
   keyUp$ = new Subject<string>();
   isLoading = false;
-  foundBooks: Book[] = [];
+  foundBooks: Beer[] = [];
 
-  constructor(private bs: BookStoreService) { }
+  constructor(private bs: BeerStoreService) { }
 
   ngOnInit() {
     this.keyUp$.pipe(

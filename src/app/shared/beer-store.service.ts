@@ -3,14 +3,14 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { retry, map, catchError } from 'rxjs/operators';
 
-import { Book } from './book';
-import { BookRaw } from './book-raw';
-import { BookFactory } from './book-factory';
+import { Beer } from './beer';
+import { BeerRaw } from './beer-raw';
+import { BeerFactory } from './beer-factory';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookStoreService {
+export class BeerStoreService {
   //private api-backup = 'https://api3.angular-buch.com/secure';
   private api = 'https://api.punkapi.com/v2';
 
@@ -20,29 +20,29 @@ export class BookStoreService {
     return this.http.get('https://api.punkapi.com/v2/beers');
   } */
 
-  getAll(): Observable<Book[]> {
-    return this.http.get<BookRaw[]>(`${this.api}/beers`)
+  getAll(): Observable<Beer[]> {
+    return this.http.get<BeerRaw[]>(`${this.api}/beers`)
       .pipe(
         retry(3),
         map(booksRaw =>
-          booksRaw.map(b => BookFactory.fromRaw(b)),
+          booksRaw.map(b => BeerFactory.fromRaw(b)),
         ),
         catchError(this.errorHandler)
       );
   }
 
-  getSingle(id: string): Observable<Book> {
+  getSingle(id: string): Observable<Beer> {
     console.log("getSingle: "+id);
-    return this.http.get<BookRaw>(
+    return this.http.get<BeerRaw>(
       `${this.api}/beers?ids=${id}`
     ).pipe(
       retry(3),
-      map(b => BookFactory.fromRaw(b)),
+      map(b => BeerFactory.fromRaw(b)),
       catchError(this.errorHandler)
     );
   }
 
-  create(book: Book): Observable<any> {
+  create(book: Beer): Observable<any> {
     return this.http.post(
       `${this.api}/book`,
       book,
@@ -52,7 +52,7 @@ export class BookStoreService {
     );
   }
 
-  update(book: Book): Observable<any> {
+  update(book: Beer): Observable<any> {
     return this.http.put(
       `${this.api}/book/${book.id}`,
       book,
@@ -71,14 +71,14 @@ export class BookStoreService {
     );
   }
 
-  getAllSearch(searchTerm: string): Observable<Book[]> {
+  getAllSearch(searchTerm: string): Observable<Beer[]> {
  console.log("getAllSeach: "+searchTerm);
-    return this.http.get<BookRaw[]>(
+    return this.http.get<BeerRaw[]>(
       `${this.api}/beers?beer_name=${searchTerm}`
     ).pipe(
       retry(3),
       map(booksRaw =>
-        booksRaw.map(b => BookFactory.fromRaw(b)),
+        booksRaw.map(b => BeerFactory.fromRaw(b)),
       ),
       catchError(this.errorHandler)
     );

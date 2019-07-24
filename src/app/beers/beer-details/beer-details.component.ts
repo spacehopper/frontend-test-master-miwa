@@ -4,22 +4,22 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { State } from '../../reducers';
-import { LoadBook,LoadBooks } from '../actions/book.actions';
-import { getBeerById } from '../selectors/book.selectors';
-import { Book } from '../../shared/book';
-import { BookStoreService } from '../../shared/book-store.service';
+import { LoadBook,LoadBeers } from '../actions/book.actions';
+import { getBeerById } from '../selectors/beer.selectors';
+import { Beer } from '../../shared/beer';
+import { BeerStoreService } from '../../shared/beer-store.service';
 import {Output,EventEmitter} from '@angular/core';
 @Component({
   selector: 'bm-book-details',
   templateUrl: './beer-details.component.html',
   styleUrls: ['./beer-details.component.css']
 })
-export class BookDetailsComponent implements OnInit {
-  book$: Observable<Book>;
+export class BeerDetailsComponent implements OnInit {
+  book$: Observable<Beer>;
   @Output() showListEvent = new EventEmitter<any>();
 
   constructor(
-    private bs: BookStoreService,
+    private bs: BeerStoreService,
     private router: Router,
     private route: ActivatedRoute,
     private store: Store<State>

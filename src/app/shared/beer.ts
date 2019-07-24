@@ -1,4 +1,4 @@
-export interface Book {
+export interface Beer {
   id?: string;
   name?: string;
   tagline?: string;

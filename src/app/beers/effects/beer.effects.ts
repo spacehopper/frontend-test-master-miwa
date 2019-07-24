@@ -5,34 +5,34 @@ import { switchMap, map, catchError, mergeMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 import {
-  BookActionTypes,
+  BeerActionTypes,
   BookActions,
-  LoadBooksSuccess,
-  LoadBooksFailure,
-  LoadBookSuccess,
+  LoadBeersSuccess,
+  LoadBeersFailure,
+  LoadBeersuccess,
   LoadBookFailure
 } from '../actions/book.actions';
-import { BookStoreService } from 'src/app/shared/book-store.service';
+import { BeerStoreService } from 'src/app/shared/beer-store.service';
 
 @Injectable()
-export class BookEffects {
+export class BeerEffects {
 
   @Effect()
-  loadBooks$ = this.actions$.pipe(
-    ofType(BookActionTypes.LoadBooks),
+  LoadBeers$ = this.actions$.pipe(
+    ofType(BeerActionTypes.LoadBeers),
     switchMap(() =>
       this.bs.getAll().pipe(
-        map(books => new LoadBooksSuccess({ books })),
-        catchError(error => of(new LoadBooksFailure({ error }))))
+        map(books => new LoadBeersSuccess({ books })),
+        catchError(error => of(new LoadBeersFailure({ error }))))
     )
   );
 
   @Effect()
   loadBook$ = this.actions$.pipe(
-    ofType(BookActionTypes.LoadBook),
+    ofType(BeerActionTypes.LoadBook),
     map(action => action.payload.isbn),
     mergeMap(id => this.bs.getSingle(id).pipe(
-      map(book => new LoadBookSuccess({ book })),
+      map(book => new LoadBeersuccess({ book })),
       catchError(error => of(new LoadBookFailure({ error })))
     ))
   );
@@ -40,7 +40,7 @@ export class BookEffects {
 
   constructor(
     private actions$: Actions<BookActions>,
-    private bs: BookStoreService,
+    private bs: BeerStoreService,
     private router: Router
   ) {}
 

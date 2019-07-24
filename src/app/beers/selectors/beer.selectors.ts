@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { State as BookState } from '../reducers/book.reducer';
+import { State as BookState } from '../reducers/beer.reducer';
 
 export const getBookState = createFeatureSelector<BookState>('book');
 
@@ -9,12 +9,13 @@ export const getBooksLoading = createSelector(
   state => state.loading
 );
 
-export const getAllBooks = createSelector(
+export const getAllBeers = createSelector(
   getBookState,
   state => state.books
 );
 
 export const getBeerById = createSelector(
-  getAllBooks,
+  getAllBeers,
   (books, props) => books.find(b => b.id === props.id)
 );
+

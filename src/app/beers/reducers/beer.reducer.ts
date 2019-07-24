@@ -1,9 +1,9 @@
-import { BookActions, BookActionTypes } from '../actions/book.actions';
+import { BookActions, BeerActionTypes } from '../actions/book.actions';
 
-import { Book } from '../../shared/book';
+import { Beer } from '../../shared/beer';
 
 export interface State {
-  books: Book[];
+  books: Beer[];
   loading: boolean;
 }
 
@@ -17,14 +17,14 @@ export function reducer(state = initialState, action: BookActions): State {
 
   switch (action.type) {
 
-    case BookActionTypes.LoadBooks: {
+    case BeerActionTypes.LoadBeers: {
       return {
         ...state,
         loading: true
       };
     }
 
-    case BookActionTypes.LoadBooksSuccess: {
+    case BeerActionTypes.LoadBeersSuccess: {
       return {
         ...state,
         books: action.payload.books,
@@ -32,7 +32,7 @@ export function reducer(state = initialState, action: BookActions): State {
       };
     }
 
-    case BookActionTypes.LoadBookSuccess: {
+    case BeerActionTypes.LoadBeersuccess: {
       const { book } = action.payload;
       const books = [
         ...state.books.filter(b => b.id !== book.id),

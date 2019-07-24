@@ -1,4 +1,4 @@
-export interface BookRaw {
+export interface BeerRaw {
   id: string;
   name: string;
   tagline: string;

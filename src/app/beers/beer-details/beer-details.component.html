@@ -66,19 +66,19 @@
       </ng-container>
     </div>
     <div class="four wide column">
-      <h4 i18n="@@BookDetailsComponent:book isbn">
+      <h4 i18n="@@BeerDetailsComponent:book isbn">
         ISBN
       </h4>
       {{ book.isbn | isbn }}
     </div>
     <div class="four wide column">
-      <h4 i18n="@@BookDetailsComponent:book published date">
+      <h4 i18n="@@BeerDetailsComponent:book published date">
         Erschienen
       </h4>
       {{ book.published | date:'longDate' }}
     </div>
     <div class="four wide column">
-      <h4 i18n="@@BookDetailsComponent:book rating">
+      <h4 i18n="@@BeerDetailsComponent:book rating">
         Rating
       </h4>
       <ng-container
@@ -89,7 +89,7 @@
       </ng-container>
     </div>
   </div>
-  <h4 i18n="@@BookDetailsComponent:book description">
+  <h4 i18n="@@BeerDetailsComponent:book description">
     Beschreibung
   </h4>
   <p>{{ book.description }}</p>
@@ -100,14 +100,14 @@
   <button class="ui tiny red labeled icon button"
           (click)="removeBook()">
     <i class="remove icon"></i>
-    <ng-container i18n="@@BookDetailsComponent:book delete">
+    <ng-container i18n="@@BeerDetailsComponent:book delete">
       Buch löschen
     </ng-container>
   </button>
   <a class="ui tiny yellow labeled icon button"
     [routerLink]="['../../admin/edit', book.isbn]">
     <i class="write icon"></i>
-    <ng-container i18n="@@BookDetailsComponent:book edit">
+    <ng-container i18n="@@BeerDetailsComponent:book edit">
       Buch bearbeiten
     </ng-container>
   </a>
