@@ -42,20 +42,20 @@ export class BeerStoreService {
     );
   }
 
-  create(book: Beer): Observable<any> {
+  create(beer: Beer): Observable<any> {
     return this.http.post(
-      `${this.api}/book`,
-      book,
+      `${this.api}/beer`,
+      beer,
       { responseType: 'text' }
     ).pipe(
       catchError(this.errorHandler)
     );
   }
 
-  update(book: Beer): Observable<any> {
+  update(beer: Beer): Observable<any> {
     return this.http.put(
-      `${this.api}/book/${book.id}`,
-      book,
+      `${this.api}/beer/${beer.id}`,
+      beer,
       { responseType: 'text' }
     ).pipe(
       catchError(this.errorHandler)
@@ -64,7 +64,7 @@ export class BeerStoreService {
 
   remove(id: string): Observable<any> {
     return this.http.delete(
-      `${this.api}/book/${id}`,
+      `${this.api}/beer/${id}`,
       { responseType: 'text' }
     ).pipe(
       catchError(this.errorHandler)
@@ -86,7 +86,7 @@ export class BeerStoreService {
 
   check(id: string): Observable<boolean> {
     return this.http.get(
-      `${this.api}/book/${id}/check`
+      `${this.api}/beer/${id}/check`
     ).pipe(
       catchError(this.errorHandler)
     );

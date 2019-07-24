@@ -2,7 +2,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { State as BookState } from '../reducers/beer.reducer';
 
-export const getBookState = createFeatureSelector<BookState>('book');
+export const getBookState = createFeatureSelector<BookState>('beer');
 
 export const getBooksLoading = createSelector(
   getBookState,

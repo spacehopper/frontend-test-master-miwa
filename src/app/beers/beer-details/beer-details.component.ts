@@ -4,18 +4,18 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { State } from '../../reducers';
-import { LoadBook,LoadBeers } from '../actions/book.actions';
+import { LoadBook,LoadBeers } from '../actions/beer.actions';
 import { getBeerById } from '../selectors/beer.selectors';
 import { Beer } from '../../shared/beer';
 import { BeerStoreService } from '../../shared/beer-store.service';
 import {Output,EventEmitter} from '@angular/core';
 @Component({
-  selector: 'bm-book-details',
+  selector: 'bm-beer-details',
   templateUrl: './beer-details.component.html',
   styleUrls: ['./beer-details.component.css']
 })
 export class BeerDetailsComponent implements OnInit {
-  book$: Observable<Beer>;
+  beer$: Observable<Beer>;
   @Output() showListEvent = new EventEmitter<any>();
 
   constructor(
@@ -28,7 +28,7 @@ export class BeerDetailsComponent implements OnInit {
   ngOnInit() {
     const isbn = this.getId();
 
-    this.book$ = this.store.pipe(
+    this.beer$ = this.store.pipe(
       select(getBeerById, { isbn })
     );
 

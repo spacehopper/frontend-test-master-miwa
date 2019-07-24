@@ -4,13 +4,13 @@ import { Store, select } from '@ngrx/store';
 import { debounceTime, distinctUntilChanged, tap, switchMap, filter } from 'rxjs/operators';
 
 import { State } from '../../reducers'; // Root State!
-import { LoadBeers } from '../actions/book.actions';
+import { LoadBeers } from '../actions/beer.actions';
 import { getAllBeers, getBooksLoading } from '../selectors/beer.selectors';
 import { Beer } from '../../shared/beer';
 import { BeerStoreService } from '../../shared/beer-store.service';
 
 @Component({
-  selector: 'bm-book-list',
+  selector: 'bm-beer-list',
   templateUrl: './beer-list.component.html',
   styleUrls: ['./beer-list.component.css']
 })

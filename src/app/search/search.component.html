@@ -8,13 +8,13 @@
   <div class="results transition visible"
     *ngIf="foundBooks.length" >
     <a class="result"
-      *ngFor="let book of foundBooks"
-      [routerLink]="['..', 'books', book.id]">
+      *ngFor="let beer of foundBooks"
+      [routerLink]="['..', 'books', beer.id]">
       <img class="ui mini image"
-     src="{{ book.image_url}}" style="height: 100%">
+     src="{{ beer.image_url}}" style="height: 100%">
      <div class="content">
-        <div class="header">{{ book.name }}</div>
-        <div *ngIf="book.tagline" class="description">{{ book.tagline }}</div>
+        <div class="header">{{ beer.name }}</div>
+        <div *ngIf="beer.tagline" class="description">{{ beer.tagline }}</div>
       </div>
     </a>
   </div>

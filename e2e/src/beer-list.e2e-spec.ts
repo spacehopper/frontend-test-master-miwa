@@ -1,9 +1,6 @@
-// run this test against the following MiniMonkey:
-// https://github.com/book-monkey2-build/iteration-3-http
+import { BookListPage } from './beer-list.po';
 
-import { BookListPage } from './book-list.po';
-
-describe('Book List Page', () => {
+describe('Beer List Page', () => {
   let listPage: BookListPage;
 
   beforeEach(() => listPage = new BookListPage());

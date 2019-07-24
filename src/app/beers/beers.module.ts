@@ -16,7 +16,7 @@ import { BeerEffects } from './effects/beer.effects';
   imports: [
     CommonModule,
     BeersRoutingModule,
-    StoreModule.forFeature('book', fromBook.reducer),
+    StoreModule.forFeature('beer', fromBook.reducer),
     EffectsModule.forFeature([BeerEffects])
   ],
   declarations: [

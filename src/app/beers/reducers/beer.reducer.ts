@@ -1,4 +1,4 @@
-import { BookActions, BeerActionTypes } from '../actions/book.actions';
+import { BookActions, BeerActionTypes } from '../actions/beer.actions';
 
 import { Beer } from '../../shared/beer';
 
@@ -33,10 +33,10 @@ export function reducer(state = initialState, action: BookActions): State {
     }
 
     case BeerActionTypes.LoadBeersuccess: {
-      const { book } = action.payload;
+      const { beer } = action.payload;
       const books = [
-        ...state.books.filter(b => b.id !== book.id),
-        book
+        ...state.books.filter(b => b.id !== beer.id),
+        beer
       ];
 
       return {

@@ -14,10 +14,10 @@
         <div class="results transition visible"
           *ngIf="foundBooks.length">
           <a class="result"
-            *ngFor="let book of foundBooks"
-            [routerLink]="['..', 'books', book.id]">
-            {{ book.name }}
-            <p class="description">{{ book.tagline }}</p>
+            *ngFor="let beer of foundBooks"
+            [routerLink]="['..', 'books', beer.id]">
+            {{ beer.name }}
+            <p class="description">{{ beer.tagline }}</p>
           </a>
         </div>
       </div>
@@ -29,10 +29,10 @@
 <div class="ui middle aligned selection divided list">
 
   <ng-container *ngIf="books$ | async as books">
-    <bm-book-list-item class="item"
+    <bm-beer-list-item class="item"
       *ngFor="let b of books"
-      [book]="b"
-      [routerLink]="b.id"></bm-book-list-item>
+      [beer]="b"
+      [routerLink]="b.id"></bm-beer-list-item>
 
     <p *ngIf="!books.length">
       Es wurden noch keine Bücher eingetragen.

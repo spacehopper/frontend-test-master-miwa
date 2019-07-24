@@ -4,14 +4,14 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Beer } from '../../shared/beer';
 
 export enum BeerActionTypes {
-  LoadBeers = '[Book] Load Books',
-  LoadBeersSuccess = '[Book] Load Books Success',
-  LoadBeersFailure = '[Book] Load Books Failure',
-  LoadBook = '[Book] Load Book',
-  LoadBeersuccess = '[Book] Load Book Success',
-  LoadBookFailure = '[Book] Load Book Failure',
-  DeleteBook = '[Book] Delete Book',
-  DeleteBookSuccess = '[Book] Delete Book Success',
+  LoadBeers = '[Beer] Load Beers',
+  LoadBeersSuccess = '[Beer] Load Beers Success',
+  LoadBeersFailure = '[Beer] Load Beers Failure',
+  LoadBook = '[Beer] Load Beer',
+  LoadBeersuccess = '[Beer] Load Beer Success',
+  LoadBookFailure = '[Beer] Load Beer Failure',
+  DeleteBook = '[Beer] Delete Beer',
+  DeleteBookSuccess = '[Beer] Delete Beer Success',
 }
 
 export class LoadBeers implements Action {
@@ -35,7 +35,7 @@ export class LoadBook implements Action {
 
 export class LoadBeersuccess implements Action {
   readonly type = BeerActionTypes.LoadBeersuccess;
-  constructor(public payload: { book: Beer }) {}
+  constructor(public payload: { beer: Beer }) {}
 }
 
 export class LoadBookFailure implements Action {

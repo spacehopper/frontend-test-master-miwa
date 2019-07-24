@@ -1,10 +1,10 @@
-import { BookMonkeyPage } from './app.po';
+import { BeerMonkeyPage } from './app.po';
 
-describe('book-monkey App', () => {
-  let page: BookMonkeyPage;
+describe('beer-monkey App', () => {
+  let page: BeerMonkeyPage;
 
   beforeEach(() => {
-    page = new BookMonkeyPage();
+    page = new BeerMonkeyPage();
   });
 
   it('should display message saying app works', () => {

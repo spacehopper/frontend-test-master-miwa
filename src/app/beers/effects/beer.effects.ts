@@ -11,7 +11,7 @@ import {
   LoadBeersFailure,
   LoadBeersuccess,
   LoadBookFailure
-} from '../actions/book.actions';
+} from '../actions/beer.actions';
 import { BeerStoreService } from 'src/app/shared/beer-store.service';
 
 @Injectable()
@@ -32,7 +32,7 @@ export class BeerEffects {
     ofType(BeerActionTypes.LoadBook),
     map(action => action.payload.isbn),
     mergeMap(id => this.bs.getSingle(id).pipe(
-      map(book => new LoadBeersuccess({ book })),
+      map(beer => new LoadBeersuccess({ beer })),
       catchError(error => of(new LoadBookFailure({ error })))
     ))
   );

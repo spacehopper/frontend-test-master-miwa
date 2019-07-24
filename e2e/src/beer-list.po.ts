@@ -19,7 +19,7 @@ export class /*BS*/BookListPage/*BE*/ {
   }
 
   getBookItems() {
-    return element.all(by.css('bm-book-list-item'));
+    return element.all(by.css('bm-beer-list-item'));
   }
 
   clickOnFirstBook() {
