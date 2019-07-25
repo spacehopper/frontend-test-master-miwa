@@ -4,12 +4,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DateValueAccessorModule } from 'angular-date-value-accessor';
 
 import { AdminRoutingModule } from './admin-routing.module';
-import { EditBeerComponent } from './edit-beer/edit-beer.component';
+import { BeerGravityComponent } from '../beers/beer-gravity/beer-gravity.component';
 import { StoreModule } from '@ngrx/store';
 import * as fromAdmin from './reducers/admin.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AdminEffects } from './effects/admin.effects';
-import { BeerFormComponent } from './beer-form/beer-form.component';
 
 
 @NgModule({
@@ -22,7 +21,7 @@ import { BeerFormComponent } from './beer-form/beer-form.component';
     EffectsModule.forFeature([AdminEffects])
   ],
   declarations: [
-    EditBeerComponent
+    BeerGravityComponent
   ]
 })
 export class AdminModule { }

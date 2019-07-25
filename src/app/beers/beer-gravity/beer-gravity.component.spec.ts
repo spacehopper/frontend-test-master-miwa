@@ -3,15 +3,15 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { EditBeerComponent } from './edit-beer.component';
+import { BeerGravityComponent } from './beer-gravity.component';
 
-describe('EditBeerComponent', () => {
-  let component: EditBeerComponent;
-  let fixture: ComponentFixture<EditBeerComponent>;
+describe('BeerGravityComponent', () => {
+  let component: BeerGravityComponent;
+  let fixture: ComponentFixture<BeerGravityComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditBeerComponent ],
+      declarations: [ BeerGravityComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
       imports: [
         HttpClientTestingModule,
@@ -21,7 +21,7 @@ describe('EditBeerComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditBeerComponent);
+    fixture = TestBed.createComponent(BeerGravityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

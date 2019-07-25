@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { EditBeerComponent } from './edit-beer/edit-beer.component';
+import { BeerGravityComponent } from '../beers/beer-gravity/beer-gravity.component';
 
 const routes: Routes = [
   {
@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'edit/:id',
-    component: EditBeerComponent
+    component: BeerGravityComponent
   }
 ];
 
