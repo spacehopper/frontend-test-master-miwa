@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class /*BS*/BookDetailsPage/*BE*/ {
+export class /*BS*/BeerDetailsPage/*BE*/ {
 
   getHeaderText() {
     return element(by.css('h1')).getText();
@@ -11,20 +11,20 @@ export class /*BS*/BookDetailsPage/*BE*/ {
   }
 }
 
-export class /*BS*/BookListPage/*BE*/ {
+export class /*BS*/BeerListPage/*BE*/ {
 
   navigateTo() {
-    browser.get('/books');/*BS*/
+    browser.get('/beers');/*BS*/
     return this;/*BE*/
   }
 
-  getBookItems() {
+  getBeerItems() {
     return element.all(by.css('bm-beer-list-item'));
   }
 
-  clickOnFirstBook() {
-    this.getBookItems().then(console.log);
-    this.getBookItems().first().click();
-    return new BookDetailsPage();
+  clickOnFirstBeer() {
+    this.getBeerItems().then(console.log);
+    this.getBeerItems().first().click();
+    return new BeerDetailsPage();
   }
 }

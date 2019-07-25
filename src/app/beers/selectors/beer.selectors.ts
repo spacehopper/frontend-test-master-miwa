@@ -1,21 +1,21 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { State as BookState } from '../reducers/beer.reducer';
+import { State as BeerState } from '../reducers/beer.reducer';
 
-export const getBookState = createFeatureSelector<BookState>('beer');
+export const getBeerState = createFeatureSelector<BeerState>('beer');
 
-export const getBooksLoading = createSelector(
-  getBookState,
+export const getBeersLoading = createSelector(
+  getBeerState,
   state => state.loading
 );
 
 export const getAllBeers = createSelector(
-  getBookState,
-  state => state.books
+  getBeerState,
+  state => state.beers
 );
 
 export const getBeerById = createSelector(
   getAllBeers,
-  (books, props) => books.find(b => b.id === props.id)
+  (beers, props) => beers.find(b => b.id === props.id)
 );
 

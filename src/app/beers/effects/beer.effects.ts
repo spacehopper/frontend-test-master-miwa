@@ -6,11 +6,11 @@ import { of } from 'rxjs';
 
 import {
   BeerActionTypes,
-  BookActions,
+  BeerActions,
   LoadBeersSuccess,
   LoadBeersFailure,
   LoadBeersuccess,
-  LoadBookFailure
+  LoadBeerFailure
 } from '../actions/beer.actions';
 import { BeerStoreService } from 'src/app/shared/beer-store.service';
 
@@ -22,24 +22,24 @@ export class BeerEffects {
     ofType(BeerActionTypes.LoadBeers),
     switchMap(() =>
       this.bs.getAll().pipe(
-        map(books => new LoadBeersSuccess({ books })),
+        map(beers => new LoadBeersSuccess({ beers })),
         catchError(error => of(new LoadBeersFailure({ error }))))
     )
   );
 
   @Effect()
-  loadBook$ = this.actions$.pipe(
-    ofType(BeerActionTypes.LoadBook),
+  loadBeer$ = this.actions$.pipe(
+    ofType(BeerActionTypes.LoadBeer),
     map(action => action.payload.isbn),
     mergeMap(id => this.bs.getSingle(id).pipe(
       map(beer => new LoadBeersuccess({ beer })),
-      catchError(error => of(new LoadBookFailure({ error })))
+      catchError(error => of(new LoadBeerFailure({ error })))
     ))
   );
 
 
   constructor(
-    private actions$: Actions<BookActions>,
+    private actions$: Actions<BeerActions>,
     private bs: BeerStoreService,
     private router: Router
   ) {}

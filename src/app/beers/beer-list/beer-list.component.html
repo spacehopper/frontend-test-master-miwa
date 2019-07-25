@@ -12,29 +12,33 @@
         </div>
 
         <div class="results transition visible"
-          *ngIf="foundBooks.length">
+          *ngIf="foundBeers.length">
           <a class="result"
-            *ngFor="let beer of foundBooks"
-            [routerLink]="['..', 'books', beer.id]">
-            {{ beer.name }}
-            <p class="description">{{ beer.tagline }}</p>
+            *ngFor="let beer of foundBeers"
+            [routerLink]="['..', 'beers', beer.id]">
+            <img class="ui mini image"
+     src="{{ beer.image_url}}" style="height: 100%">
+     <div class="content">
+        <div class="header">{{ beer.name }}</div>
+        <div *ngIf="beer.tagline" class="description">{{ beer.tagline }}</div>
+      </div>
           </a>
         </div>
       </div>
     </div>
-</div>
- -->
+</div> -->
+
 <div class="ui divider"></div>
 
 <div class="ui middle aligned selection divided list">
 
-  <ng-container *ngIf="books$ | async as books">
+  <ng-container *ngIf="beers$ | async as beers">
     <bm-beer-list-item class="item"
-      *ngFor="let b of books"
+      *ngFor="let b of beers"
       [beer]="b"
       [routerLink]="b.id"></bm-beer-list-item>
 
-    <p *ngIf="!books.length">
+    <p *ngIf="!beers.length">
       Es wurden noch keine Bücher eingetragen.
     </p>
   </ng-container>

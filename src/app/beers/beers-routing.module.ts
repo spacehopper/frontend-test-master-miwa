@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BeerListComponent } from './beer-list/beer-list.component';
-  import {BeerDetailsComponent} from "./beer-details/beer-details.component";
+import {BeerDetailsComponent} from "./beer-details/beer-details.component";
 const routes: Routes = [
   {
     path: '',

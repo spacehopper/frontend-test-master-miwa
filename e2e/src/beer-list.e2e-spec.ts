@@ -1,21 +1,21 @@
-import { BookListPage } from './beer-list.po';
+import { BeerListPage } from './beer-list.po';
 
 describe('Beer List Page', () => {
-  let listPage: BookListPage;
+  let listPage: BeerListPage;
 
-  beforeEach(() => listPage = new BookListPage());
+  beforeEach(() => listPage = new BeerListPage());
 
-  it('should display at least two books', () => {/*BS*/
-    const bookItems = listPage.navigateTo()
-      .getBookItems();/*BE*/
-    expect(bookItems.count()).toBeGreaterThan(1);
+  it('should display at least two beers', () => {/*BS*/
+    const beerItems = listPage.navigateTo()
+      .getBeerItems();/*BE*/
+    expect(beerItems.count()).toBeGreaterThan(1);
   });
 
   it('should navigate to details page by ISBN', () => {/*BS*/
     const detailsPage = listPage.navigateTo()
-      .clickOnFirstBook();/*BE*/
+      .clickOnFirstBeer();/*BE*/
     expect(detailsPage.getUrl())
-      .toContain('/books/9783864906466');
+      .toContain('/beers/9783864906466');
     expect(detailsPage.getHeaderText()).toBe('Angular');
   });
 });

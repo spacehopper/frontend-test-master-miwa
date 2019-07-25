@@ -27,10 +27,10 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should have a link to /books', () => {
+  it('should have a link to /beers', () => {
     const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
     const index = debugElements.findIndex(de => {
-      return de.properties['href'] === '/books';
+      return de.properties['href'] === '/beers';
     });
     expect(index).toBeGreaterThan(-1);
   });

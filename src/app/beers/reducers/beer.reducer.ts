@@ -1,20 +1,19 @@
-import { BookActions, BeerActionTypes } from '../actions/beer.actions';
+import { BeerActions, BeerActionTypes } from '../actions/beer.actions';
 
 import { Beer } from '../../shared/beer';
 
 export interface State {
-  books: Beer[];
+  beers: Beer[];
   loading: boolean;
 }
 
 export const initialState: State = {
-  books: [],
+  beers: [],
   loading: false
 };
 
-export function reducer(state = initialState, action: BookActions): State {
-  console.log("action.type: "+action.type);
-
+export function reducer(state = initialState, action: BeerActions): State {
+  
   switch (action.type) {
 
     case BeerActionTypes.LoadBeers: {
@@ -27,21 +26,21 @@ export function reducer(state = initialState, action: BookActions): State {
     case BeerActionTypes.LoadBeersSuccess: {
       return {
         ...state,
-        books: action.payload.books,
+        beers: action.payload.beers,
         loading: false
       };
     }
 
     case BeerActionTypes.LoadBeersuccess: {
       const { beer } = action.payload;
-      const books = [
-        ...state.books.filter(b => b.id !== beer.id),
+      const beers = [
+        ...state.beers.filter(b => b.id !== beer.id),
         beer
       ];
 
       return {
         ...state,
-        books
+        beers
       };
     }
 

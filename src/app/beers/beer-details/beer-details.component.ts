@@ -4,11 +4,13 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { State } from '../../reducers';
-import { LoadBook,LoadBeers } from '../actions/beer.actions';
+import { LoadBeer,LoadBeers } from '../actions/beer.actions';
 import { getBeerById } from '../selectors/beer.selectors';
 import { Beer } from '../../shared/beer';
 import { BeerStoreService } from '../../shared/beer-store.service';
 import {Output,EventEmitter} from '@angular/core';
+import {Directive, HostListener} from '@angular/core';
+
 @Component({
   selector: 'bm-beer-details',
   templateUrl: './beer-details.component.html',
@@ -16,7 +18,6 @@ import {Output,EventEmitter} from '@angular/core';
 })
 export class BeerDetailsComponent implements OnInit {
   beer$: Observable<Beer>;
-  @Output() showListEvent = new EventEmitter<any>();
 
   constructor(
     private bs: BeerStoreService,
@@ -32,14 +33,13 @@ export class BeerDetailsComponent implements OnInit {
       select(getBeerById, { isbn })
     );
 
-    this.store.dispatch(new LoadBook({ isbn }));
+    this.store.dispatch(new LoadBeer({ isbn }));
   }
 
-  getRating(num: number) {
-    return new Array(num);
-  }
 
   getId() {
     return this.route.snapshot.paramMap.get('id');
   }
+ 
+
 }

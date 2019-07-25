@@ -7,11 +7,9 @@ export enum BeerActionTypes {
   LoadBeers = '[Beer] Load Beers',
   LoadBeersSuccess = '[Beer] Load Beers Success',
   LoadBeersFailure = '[Beer] Load Beers Failure',
-  LoadBook = '[Beer] Load Beer',
+  LoadBeer = '[Beer] Load Beer',
   LoadBeersuccess = '[Beer] Load Beer Success',
-  LoadBookFailure = '[Beer] Load Beer Failure',
-  DeleteBook = '[Beer] Delete Beer',
-  DeleteBookSuccess = '[Beer] Delete Beer Success',
+  LoadBeerFailure = '[Beer] Load Beer Failure'
 }
 
 export class LoadBeers implements Action {
@@ -20,7 +18,7 @@ export class LoadBeers implements Action {
 
 export class LoadBeersSuccess implements Action {
   readonly type = BeerActionTypes.LoadBeersSuccess;
-  constructor(public payload: { books: Beer[] }) { }
+  constructor(public payload: { beers: Beer[] }) { }
 }
 
 export class LoadBeersFailure implements Action {
@@ -28,8 +26,8 @@ export class LoadBeersFailure implements Action {
   constructor(public payload: { error: HttpErrorResponse }) { }
 }
 
-export class LoadBook implements Action {
-  readonly type = BeerActionTypes.LoadBook;
+export class LoadBeer implements Action {
+  readonly type = BeerActionTypes.LoadBeer;
   constructor(public payload: { isbn: string }) {}
 }
 
@@ -38,16 +36,16 @@ export class LoadBeersuccess implements Action {
   constructor(public payload: { beer: Beer }) {}
 }
 
-export class LoadBookFailure implements Action {
-  readonly type = BeerActionTypes.LoadBookFailure;
+export class LoadBeerFailure implements Action {
+  readonly type = BeerActionTypes.LoadBeerFailure;
   constructor(public payload: { error: HttpErrorResponse }) {}
 }
 
 
-export type BookActions =
+export type BeerActions =
   | LoadBeers
   | LoadBeersSuccess
   | LoadBeersFailure
-  | LoadBook
+  | LoadBeer
   | LoadBeersuccess
-  | LoadBookFailure;
+  | LoadBeerFailure;

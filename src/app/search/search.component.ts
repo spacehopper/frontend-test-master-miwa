@@ -14,19 +14,19 @@ export class SearchComponent implements OnInit {
 
   keyUp$ = new Subject<string>();
   isLoading = false;
-  foundBooks: Beer[] = [];
+  foundBeers: Beer[] = [];
 
   constructor(private bs: BeerStoreService) { }
 
   ngOnInit() {
     this.keyUp$.pipe(
-      filter(term => term.length >= 3),
+      filter(term => term.length >= 1),
       debounceTime(500),
       distinctUntilChanged(),
       tap(() => this.isLoading = true),
       switchMap(searchTerm => this.bs.getAllSearch(searchTerm)),
       tap(() => this.isLoading = false)
     )
-    .subscribe(books => this.foundBooks = books);
+    .subscribe(beers => this.foundBeers = beers);
   }
 }

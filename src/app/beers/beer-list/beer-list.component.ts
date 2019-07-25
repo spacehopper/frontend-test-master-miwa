@@ -5,7 +5,7 @@ import { debounceTime, distinctUntilChanged, tap, switchMap, filter } from 'rxjs
 
 import { State } from '../../reducers'; // Root State!
 import { LoadBeers } from '../actions/beer.actions';
-import { getAllBeers, getBooksLoading } from '../selectors/beer.selectors';
+import { getAllBeers, getBeersLoading } from '../selectors/beer.selectors';
 import { Beer } from '../../shared/beer';
 import { BeerStoreService } from '../../shared/beer-store.service';
 
@@ -15,16 +15,16 @@ import { BeerStoreService } from '../../shared/beer-store.service';
   styleUrls: ['./beer-list.component.css']
 })
 export class BeerListComponent implements OnInit {
-  books$: Observable<Beer[]>;
+  beers$: Observable<Beer[]>;
   loading$: Observable<boolean>;
   keyUp$ = new Subject<string>();
   isLoading = false;
-  foundBooks: Beer[] = [];
+  foundBeers: Beer[] = [];
 
   constructor(private store: Store<State>,private bs: BeerStoreService) { }
 
   ngOnInit() {
-    this.keyUp$.pipe(
+   /*  this.keyUp$.pipe(
       filter(term => term.length >= 3),
       debounceTime(500),
       distinctUntilChanged(),
@@ -32,10 +32,10 @@ export class BeerListComponent implements OnInit {
       switchMap(searchTerm => this.bs.getAllSearch(searchTerm)),
       tap(() => this.isLoading = false)
     )
-    .subscribe(books => this.foundBooks = books);
+    .subscribe(beers => this.foundBeers = beers); */
 
-    this.books$ = this.store.pipe(select(getAllBeers));
-    this.loading$ = this.store.pipe(select(getBooksLoading));
+    this.beers$ = this.store.pipe(select(getAllBeers));
+    this.loading$ = this.store.pipe(select(getBeersLoading));
 
     this.store.dispatch(new LoadBeers());
   }

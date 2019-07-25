@@ -14,7 +14,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'books',
+    path: 'beers',
     loadChildren: () => import('./beers/beers.module').then(m => m.BeersModule)
   }
 ];

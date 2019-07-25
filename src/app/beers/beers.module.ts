@@ -1,4 +1,4 @@
-    import { DelayDirective } from './shared/delay.directive';
+import { DelayDirective } from './shared/delay.directive';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BeersRoutingModule } from './beers-routing.module';
@@ -8,7 +8,7 @@ import { BeerListItemComponent } from './beer-list-item/beer-list-item.component
 import { BeerDetailsComponent } from "./beer-details/beer-details.component";
 import { ZoomDirective } from './shared/zoom.directive';
 import { StoreModule } from '@ngrx/store';
-import * as fromBook from './reducers/beer.reducer';
+import * as fromBeer from './reducers/beer.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { BeerEffects } from './effects/beer.effects';
 
@@ -16,7 +16,7 @@ import { BeerEffects } from './effects/beer.effects';
   imports: [
     CommonModule,
     BeersRoutingModule,
-    StoreModule.forFeature('beer', fromBook.reducer),
+    StoreModule.forFeature('beer', fromBeer.reducer),
     EffectsModule.forFeature([BeerEffects])
   ],
   declarations: [

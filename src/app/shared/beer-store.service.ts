@@ -11,28 +11,22 @@ import { BeerFactory } from './beer-factory';
   providedIn: 'root'
 })
 export class BeerStoreService {
-  //private api-backup = 'https://api3.angular-buch.com/secure';
   private api = 'https://api.punkapi.com/v2';
 
   constructor(private http: HttpClient) {}
-
-/*   public getAll2(): Observable<any> {
-    return this.http.get('https://api.punkapi.com/v2/beers');
-  } */
 
   getAll(): Observable<Beer[]> {
     return this.http.get<BeerRaw[]>(`${this.api}/beers`)
       .pipe(
         retry(3),
-        map(booksRaw =>
-          booksRaw.map(b => BeerFactory.fromRaw(b)),
+        map(beersRaw =>
+          beersRaw.map(b => BeerFactory.fromRaw(b)),
         ),
         catchError(this.errorHandler)
       );
   }
 
   getSingle(id: string): Observable<Beer> {
-    console.log("getSingle: "+id);
     return this.http.get<BeerRaw>(
       `${this.api}/beers?ids=${id}`
     ).pipe(
@@ -42,52 +36,14 @@ export class BeerStoreService {
     );
   }
 
-  create(beer: Beer): Observable<any> {
-    return this.http.post(
-      `${this.api}/beer`,
-      beer,
-      { responseType: 'text' }
-    ).pipe(
-      catchError(this.errorHandler)
-    );
-  }
-
-  update(beer: Beer): Observable<any> {
-    return this.http.put(
-      `${this.api}/beer/${beer.id}`,
-      beer,
-      { responseType: 'text' }
-    ).pipe(
-      catchError(this.errorHandler)
-    );
-  }
-
-  remove(id: string): Observable<any> {
-    return this.http.delete(
-      `${this.api}/beer/${id}`,
-      { responseType: 'text' }
-    ).pipe(
-      catchError(this.errorHandler)
-    );
-  }
-
   getAllSearch(searchTerm: string): Observable<Beer[]> {
- console.log("getAllSeach: "+searchTerm);
     return this.http.get<BeerRaw[]>(
       `${this.api}/beers?beer_name=${searchTerm}`
     ).pipe(
       retry(3),
-      map(booksRaw =>
-        booksRaw.map(b => BeerFactory.fromRaw(b)),
+      map(beersRaw =>
+        beersRaw.map(b => BeerFactory.fromRaw(b)),
       ),
-      catchError(this.errorHandler)
-    );
-  }
-
-  check(id: string): Observable<boolean> {
-    return this.http.get(
-      `${this.api}/beer/${id}/check`
-    ).pipe(
       catchError(this.errorHandler)
     );
   }

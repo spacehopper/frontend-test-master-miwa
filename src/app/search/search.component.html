@@ -6,10 +6,10 @@
   </div>
 
   <div class="results transition visible"
-    *ngIf="foundBooks.length" >
+    *ngIf="foundBeers.length" >
     <a class="result"
-      *ngFor="let beer of foundBooks"
-      [routerLink]="['..', 'books', beer.id]">
+      *ngFor="let beer of foundBeers"
+      [routerLink]="['..', 'beers', beer.id]">
       <img class="ui mini image"
      src="{{ beer.image_url}}" style="height: 100%">
      <div class="content">
