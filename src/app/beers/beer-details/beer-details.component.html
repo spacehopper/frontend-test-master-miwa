@@ -40,20 +40,20 @@
       Description
     </h4>
     <p>{{ beer[0].description }}</p>
+    
+    <a routerLink="../" class="ui red button">
+      <i class="angle left icon"></i>
+      <ng-container>Back to the list of beers</ng-container>
+    </a>
+      <a class="ui tiny yellow labeled icon button"
+      [routerLink]="['../../admin/edit', beer[0].id ]">
+      <i class="write icon"></i>
+       <ng-container>
+        Show gravity
+      </ng-container>
+      </a>
 </div>
 <div style="margin-top:20px;">
-
-<a routerLink="../" class="ui red button">
-  <i class="angle left icon"></i>
-  <ng-container>Back to the list of beers</ng-container>
-</a>
-  <!-- <a class="ui tiny yellow labeled icon button"
-  [routerLink]="['../../admin/edit', book.id]">
-  <i class="write icon"></i>
-  <ng-container>
-    Show gravity
-  </ng-container>
-  </a> -->
 </div>
 <ng-template #loading>
     <div class="ui active centered inline loader"></div>

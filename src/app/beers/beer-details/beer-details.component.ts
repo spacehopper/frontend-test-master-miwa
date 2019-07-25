@@ -8,8 +8,6 @@ import { LoadBeer,LoadBeers } from '../actions/beer.actions';
 import { getBeerById } from '../selectors/beer.selectors';
 import { Beer } from '../../shared/beer';
 import { BeerStoreService } from '../../shared/beer-store.service';
-import {Output,EventEmitter} from '@angular/core';
-import {Directive, HostListener} from '@angular/core';
 
 @Component({
   selector: 'bm-beer-details',
