@@ -28,7 +28,11 @@ export class LoadBeersFailure implements Action {
 
 export class LoadBeer implements Action {
   readonly type = BeerActionTypes.LoadBeer;
-  constructor(public payload: { isbn: string }) {}
+  constructor(public payload: { isbn: string }) {
+    let isbn:string;
+    isbn=this.payload.isbn;
+    console.log("2. Load Beer im Action:constructor: isbn: "+isbn);
+  }
 }
 
 export class LoadBeersuccess implements Action {

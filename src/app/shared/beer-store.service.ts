@@ -13,7 +13,10 @@ import { BeerFactory } from './beer-factory';
 export class BeerStoreService {
   private api = 'https://api.punkapi.com/v2';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    console.log("3. BeerStoreService http: "+http);
+
+  }
 
   getAll(): Observable<Beer[]> {
     return this.http.get<BeerRaw[]>(`${this.api}/beers`)
@@ -35,7 +38,7 @@ export class BeerStoreService {
       catchError(this.errorHandler)
     );
   }
-  update(beer: Beer): Observable<any> {
+  /* update(beer: Beer): Observable<any> {
     return this.http.put(
       `${this.api}/beer/${beer.id}`,
       beer,
@@ -43,7 +46,7 @@ export class BeerStoreService {
     ).pipe(
       catchError(this.errorHandler)
     );
-  }
+  } */
 
   getAllSearch(searchTerm: string): Observable<Beer[]> {
     return this.http.get<BeerRaw[]>(

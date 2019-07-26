@@ -19,8 +19,8 @@ const routes: Routes = [
   }
   ,
   {
-    path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    path: 'gravity',
+    loadChildren: () => import('./beers/beer-show-details/admin.module').then(m => m.AdminModule),
   }
 ];
 

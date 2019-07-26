@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BeerGravityComponent } from './beer-gravity/beer-gravity.component';
 
-import { BeerGravityComponent } from '../beers/beer-gravity/beer-gravity.component';
+
 
 const routes: Routes = [
   {
@@ -10,7 +11,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'edit/:id',
+    path: 'details/:id',
     component: BeerGravityComponent
   }
 ];

@@ -24,16 +24,7 @@ export class BeerListComponent implements OnInit {
   constructor(private store: Store<State>,private bs: BeerStoreService) { }
 
   ngOnInit() {
-   /*  this.keyUp$.pipe(
-      filter(term => term.length >= 3),
-      debounceTime(500),
-      distinctUntilChanged(),
-      tap(() => this.isLoading = true),
-      switchMap(searchTerm => this.bs.getAllSearch(searchTerm)),
-      tap(() => this.isLoading = false)
-    )
-    .subscribe(beers => this.foundBeers = beers); */
-
+    console.log("ngOnInit");
     this.beers$ = this.store.pipe(select(getAllBeers));
     this.loading$ = this.store.pipe(select(getBeersLoading));
 

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Beer } from '../../shared/beer';
+import { Beer } from '../../../shared/beer';
 
 export enum AdminActionTypes {
   UpdateBeer = '[Admin] Update Beer',
