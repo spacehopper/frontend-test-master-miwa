@@ -13,7 +13,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
-import { BeerGravityComponent } from './beers/beer-show-details/beer-gravity/beer-gravity.component';
+import { BeerGravityComponent } from './beers/beer-gravity/beer-gravity.component';
 
 @NgModule({
   declarations: [

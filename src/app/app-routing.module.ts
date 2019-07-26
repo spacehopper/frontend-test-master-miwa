@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { BeerGravityComponent } from './beers/beer-show-details/beer-gravity/beer-gravity.component';
+import { BeerGravityComponent } from './beers/beer-gravity/beer-gravity.component';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
   }
   ,
   {
-    path: 'details/:id',
+    path: 'beers/details/:id',
     component: BeerGravityComponent
   }
 ];

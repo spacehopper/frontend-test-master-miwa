@@ -31,7 +31,6 @@ export class LoadBeer implements Action {
   constructor(public payload: { isbn: string }) {
     let isbn:string;
     isbn=this.payload.isbn;
-    console.log("2. Load Beer im Action:constructor: isbn: "+isbn);
   }
 }
 

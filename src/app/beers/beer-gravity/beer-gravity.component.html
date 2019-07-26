@@ -1,0 +1,26 @@
+<h1>Gravity (alcoholic beverage)</h1>
+<div *ngIf="beer$ | async as beer; else loading">
+  <div class="four wide column">
+    <h4>
+      Original gravity (OG)
+    </h4>
+    {{ beer[0].target_og}}
+  </div>
+  <div class="four wide column">
+    <h4>
+      Final gravity (FG)
+    </h4>
+    {{beer[0].target_fg}}
+  </div>
+  <a routerLink="../../../beers" class="ui red button">
+    <i class="angle left icon"></i>
+    <ng-container>Back to the list of beers</ng-container>
+  </a>
+  <a [routerLink]="['../../../beers', beer[0].id]" class="ui red button">
+    <i class="angle left icon"></i>
+    <ng-container>close</ng-container>
+  </a>
+</div>
+<ng-template #loading>
+  <div class="ui active centered inline loader"></div>
+</ng-template>

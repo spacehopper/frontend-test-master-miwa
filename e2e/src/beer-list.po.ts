@@ -23,7 +23,6 @@ export class /*BS*/BeerListPage/*BE*/ {
   }
 
   clickOnFirstBeer() {
-    this.getBeerItems().then(console.log);
     this.getBeerItems().first().click();
     return new BeerDetailsPage();
   }

@@ -14,7 +14,6 @@ export class BeerStoreService {
   private api = 'https://api.punkapi.com/v2';
 
   constructor(private http: HttpClient) {
-    console.log("3. BeerStoreService http: "+http);
 
   }
 
@@ -38,15 +37,6 @@ export class BeerStoreService {
       catchError(this.errorHandler)
     );
   }
-  /* update(beer: Beer): Observable<any> {
-    return this.http.put(
-      `${this.api}/beer/${beer.id}`,
-      beer,
-      { responseType: 'text' }
-    ).pipe(
-      catchError(this.errorHandler)
-    );
-  } */
 
   getAllSearch(searchTerm: string): Observable<Beer[]> {
     return this.http.get<BeerRaw[]>(

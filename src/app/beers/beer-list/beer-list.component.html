@@ -1,33 +1,3 @@
-<!-- <div class="two wide column">
-    <h2>Search: </h2>
-    <div class="ui search" >
-
-        <div class="four wide column">
-
-          <div class="ui icon input">
-
-          <input type="text" class="prompt"
-            (keyup)="keyUp$.next($event.target.value)">
-          <i class="search icon"></i>
-        </div>
-
-        <div class="results transition visible"
-          *ngIf="foundBeers.length">
-          <a class="result"
-            *ngFor="let beer of foundBeers"
-            [routerLink]="['..', 'beers', beer.id]">
-            <img class="ui mini image"
-     src="{{ beer.image_url}}" style="height: 100%">
-     <div class="content">
-        <div class="header">{{ beer.name }}</div>
-        <div *ngIf="beer.tagline" class="description">{{ beer.tagline }}</div>
-      </div>
-          </a>
-        </div>
-      </div>
-    </div>
-</div> -->
-
 <div class="ui divider"></div>
 
 <div class="ui middle aligned selection divided list">
@@ -39,14 +9,14 @@
       [routerLink]="b.id"></bm-beer-list-item>
 
     <p *ngIf="!beers.length">
-      Es wurden noch keine Bücher eingetragen.
+      Can´t find the beers. Time for a smoothie?
     </p>
   </ng-container>
 
   <ng-container *ngIf="loading$ | async">
     <div class="ui active dimmer">
       <div class="ui large text loader">
-        Daten werden geladen...
+        Getting thirsty...
       </div>
     </div>
   </ng-container>

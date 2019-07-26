@@ -24,7 +24,6 @@ export class BeerListComponent implements OnInit {
   constructor(private store: Store<State>,private bs: BeerStoreService) { }
 
   ngOnInit() {
-    console.log("ngOnInit");
     this.beers$ = this.store.pipe(select(getAllBeers));
     this.loading$ = this.store.pipe(select(getBeersLoading));
 
