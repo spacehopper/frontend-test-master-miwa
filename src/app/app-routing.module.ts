@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
+import { BeerGravityComponent } from './beers/beer-show-details/beer-gravity/beer-gravity.component';
 
 const routes: Routes = [
   {
@@ -19,8 +20,8 @@ const routes: Routes = [
   }
   ,
   {
-    path: 'gravity',
-    loadChildren: () => import('./beers/beer-show-details/admin.module').then(m => m.AdminModule),
+    path: 'details/:id',
+    component: BeerGravityComponent
   }
 ];
 

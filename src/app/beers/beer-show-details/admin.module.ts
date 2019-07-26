@@ -12,7 +12,7 @@ import { BeerGravityComponent } from './beer-gravity/beer-gravity.component';
 
 
 @NgModule({
-  imports: [
+ /*  imports: [
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
@@ -22,6 +22,6 @@ import { BeerGravityComponent } from './beer-gravity/beer-gravity.component';
   ],
   declarations: [
     BeerGravityComponent
-  ]
+  ] */
 })
 export class AdminModule { }

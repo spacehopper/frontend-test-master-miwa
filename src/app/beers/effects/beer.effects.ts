@@ -36,6 +36,17 @@ export class BeerEffects {
       catchError(error => of(new LoadBeerFailure({ error })))
     ))
   );
+    /* @Effect()
+  updateBeer$ = this.actions$.pipe(
+    ofType(AdminActionTypes.UpdateBeer),
+    map(action => action.payload.beer),
+    mergeMap(beer =>
+      this.bs.update(beer).pipe(
+        map(() => new UpdateBeerSuccess({ beer })),
+        tap(() => this.router.navigate(['/beers', beer.id]))
+      )
+    )
+  ); */
 
 
   constructor(
